@@ -9,18 +9,23 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Alert
 } from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
+  android: 'Double R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+var alertMessage = 'Credibly reintermediate next-generation potentialities after goal-oriented ' +
+'catalysts for change. Dynamically revolutionize.';
+
+
+export default class App extends Component {
+
   render() {
     return (
       <View style={styles.container}>
@@ -33,6 +38,16 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+
+        
+            <Text onPress={() => Alert.alert(
+            'Alert Title',
+            alertMessage,
+            [
+              {text: 'OK', onPress: () => console.log('OK Pressed!')},
+            ]
+          )}>Alert with message and default button</Text>
+          
       </View>
     );
   }
